@@ -16,12 +16,21 @@ return {
         },
         "nvim-telescope/telescope-ui-select.nvim",
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+        "j-hui/fidget.nvim",
     },
 
     config = function()
         local actions = require("telescope.actions")
 
         local telescope_config = {
+            defaults = {
+                file_ignore_patterns = {
+                    "^%.git/",
+                    "/%.git/",
+                    "^node_modules/",
+                    "/node_modules/",
+                },
+            },
             extensions = {
                 ["ui-select"] = require("telescope.themes").get_dropdown(),
             },
@@ -38,6 +47,9 @@ return {
                         },
                     },
                 },
+                find_files = {
+                    hidden = true,
+                },
             },
         }
 
@@ -45,6 +57,7 @@ return {
 
         pcall(require("telescope").load_extension, "fzf")
         pcall(require("telescope").load_extension, "ui-select")
+        pcall(require("telescope").load_extension, "fidget")
 
         local map = require("utils").map
         local builtin = require("telescope.builtin")
@@ -120,10 +133,21 @@ return {
         end, { desc = "Goto Symbol (Workspace)" })
 
         map("n", "<leader>/", function()
-            builtin.current_buffer_fuzzy_find(
-                require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
-            )
-        end, { desc = "[/] Fuzzily search in current buffer" })
+            local filename = vim.api.nvim_buf_get_name(0)
+
+            if filename == "" then
+                builtin.current_buffer_fuzzy_find({
+                    previewer = false,
+                })
+                return
+            end
+
+            builtin.live_grep({
+                winblend = 10,
+                previewer = true,
+                search_dirs = { filename },
+            })
+        end, { desc = "[/] Search in current buffer" })
 
         map("n", "<leader>//", function()
             builtin.live_grep({ grep_open_files = true, prompt_title = "Live Grep in Open Files" })
