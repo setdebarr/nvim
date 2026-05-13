@@ -29,6 +29,9 @@ return {
                     max = 80,
                 },
             },
+            filters = {
+                git_ignored = false,
+            },
         }
 
         require("nvim-tree").setup(tree_config)
