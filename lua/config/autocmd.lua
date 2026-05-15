@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "Show line diagnostics"
-        map("n", "<leader>d", vim.diagnostic.open_float, opts)
+        map("n", "<leader>ld", vim.diagnostic.open_float, opts)
 
         opts.desc = "Go to previous diagnostic"
         map("n", "[d", function()

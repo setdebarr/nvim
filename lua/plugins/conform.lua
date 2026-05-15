@@ -25,7 +25,7 @@ return {
 
             python = { "isort", "black" },
 
-            rust = { "rustfmt", lsp_format = "fallback" },
+            rust = { "rustfmt" },
 
             c = { "clang-format" },
             cpp = { "clang-format" },
@@ -46,7 +46,7 @@ return {
 
     keys = {
         {
-            "<C-i>",
+            "<leader>ff",
             function()
                 require("conform").format({
                     lsp_fallback = true,
