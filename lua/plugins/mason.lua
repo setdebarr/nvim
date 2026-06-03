@@ -2,6 +2,7 @@
 ---@type LazySpec
 return {
     "mason-org/mason-lspconfig.nvim",
+
     dependencies = {
         {
             "mason-org/mason.nvim",
@@ -14,14 +15,6 @@ return {
     },
 
     config = function()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls",
-                "clangd",
-                "pyright",
-                "gopls",
-                "rust_analyzer",
-            },
-        })
+        require("sean.plugins.mason")
     end,
 }

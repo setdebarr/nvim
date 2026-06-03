@@ -2,6 +2,10 @@
 ---@type LazySpec
 return {
     "windwp/nvim-autopairs",
+
     event = "InsertEnter",
-    opts = {},
+
+    config = function()
+        require("sean.plugins.autopairs")
+    end,
 }

@@ -3,5 +3,7 @@
 return {
     "fei6409/log-highlight.nvim",
 
-    opts = {},
+    config = function()
+        require("sean.plugins.log-highlight")
+    end,
 }
