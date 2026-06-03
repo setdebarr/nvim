@@ -28,6 +28,7 @@ require("lazy").setup({
         },
     },
     checker = {
+        notify = false,
         enabled = true,
     },
 })

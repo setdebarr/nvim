@@ -29,3 +29,5 @@ vim.opt.list = true
 vim.opt.termguicolors = true
 
 vim.opt.winborder = "rounded"
+
+vim.opt.exrc = true

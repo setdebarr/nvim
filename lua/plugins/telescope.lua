@@ -21,9 +21,39 @@ return {
 
     config = function()
         local actions = require("telescope.actions")
+        local layout_strategies = require("telescope.pickers.layout_strategies")
+
+        layout_strategies.adaptive = function(picker, max_columns, max_lines, layout_config)
+            layout_config = layout_config or {}
+            local w = layout_config.width or 0.8
+            local popup_width = type(w) == "number" and w < 1 and math.floor(max_columns * w)
+                or math.min(max_columns, w)
+            -- vim.notify(
+            --     string.format(
+            --         "[telescope adaptive] max_columns=%d w=%s popup_width=%d -> %s",
+            --         max_columns,
+            --         tostring(w),
+            --         popup_width,
+            --         popup_width < 130 and "vertical" or "horizontal"
+            --     ),
+            --     vim.log.levels.INFO
+            -- )
+            if popup_width < 130 then
+                return layout_strategies.vertical(picker, max_columns, max_lines, layout_config)
+            end
+            return layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
+        end
 
         local telescope_config = {
             defaults = {
+                layout_strategy = "adaptive",
+                layout_config = {
+                    width = 0.9,
+                    vertical = {
+                        preview_cutoff = 0,
+                        preview_height = 0.5,
+                    },
+                },
                 file_ignore_patterns = {
                     "^%.git/",
                     "/%.git/",
@@ -83,6 +113,11 @@ return {
         local function get_visual_selection()
             return table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
         end
+
+        -- notifications
+        map("n", "<leader>sn", function()
+            require("telescope").extensions.fidget.fidget()
+        end, { desc = "Notifications" })
 
         -- git
         map("n", "<leader>gl", builtin.git_commits, { desc = "Git Commits" })

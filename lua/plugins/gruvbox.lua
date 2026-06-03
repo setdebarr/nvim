@@ -1,15 +1,15 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
-    "AlexvZyl/nordic.nvim",
+    "ellisonleao/gruvbox.nvim",
 
-    enabled = true,
+    enabled = false,
 
     lazy = false,
 
     priority = 1000,
 
     config = function()
-        require("sean.plugins.nordic")
+        require("sean.plugins.gruvbox")
     end,
 }
