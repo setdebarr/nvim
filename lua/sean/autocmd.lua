@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         opts.desc = "Hover documentation"
         map("n", "K", function()
-            vim.lsp.buf.hover({ border = "single" })
+            vim.lsp.buf.hover()
         end, opts)
 
         opts.desc = "Restart LSP"

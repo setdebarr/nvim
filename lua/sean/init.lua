@@ -1,1 +1,5 @@
+require("sean.globals")
+require("sean.options")
+require("sean.keymap")
+require("sean.autocmd")
 require("sean.lazy")
