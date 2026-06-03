@@ -1,4 +1,4 @@
-local map = require("utils").map
+local map = require("sean.utils").map
 
 local function clangd_keymaps(client, bufnr)
     if client.name ~= "clangd" then

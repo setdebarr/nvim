@@ -37,7 +37,7 @@ local config = {
 
 require("conform").setup(config)
 
-local map = require("utils").map
+local map = require("sean.utils").map
 
 map({ "n", "v" }, "<leader>ff", function()
     require("conform").format({

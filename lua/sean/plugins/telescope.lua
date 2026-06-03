@@ -81,7 +81,7 @@ pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 pcall(require("telescope").load_extension, "fidget")
 
-local map = require("utils").map
+local map = require("sean.utils").map
 local builtin = require("telescope.builtin")
 
 local function get_root()
