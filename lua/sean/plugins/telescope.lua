@@ -118,9 +118,9 @@ map("n", "<leader>sa", builtin.autocommands, { desc = "Auto Commands" })
 map("n", "<leader>sb", builtin.current_buffer_fuzzy_find, { desc = "Buffer Lines" })
 map("n", "<leader>sc", builtin.command_history, { desc = "Command History" })
 map("n", "<leader>sC", builtin.commands, { desc = "Commands" })
-map("n", "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" })
+map("n", "<leader>sD", builtin.diagnostics, { desc = "Diagnostics" })
 
-map("n", "<leader>sD", function()
+map("n", "<leader>sd", function()
     builtin.diagnostics({ bufnr = 0 })
 end, { desc = "Buffer Diagnostics" })
 
