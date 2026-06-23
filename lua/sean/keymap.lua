@@ -1,4 +1,7 @@
 local map = require("sean.utils").map
+local lazygit = require("sean.native.lazygit")
+
+map("n", "<leader>lg", lazygit.toggle, { desc = "Open [L]azy[G]it" })
 
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
