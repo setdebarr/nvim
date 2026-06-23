@@ -152,10 +152,6 @@ local spec = {
             require("sean.plugins.smear-cursor")
         end,
     },
-    {
-        "OXY2DEV/markview.nvim",
-        lazy = false,
-    },
 
     -- Git
     {
@@ -183,6 +179,12 @@ local spec = {
         event = "InsertEnter",
         config = function()
             require("sean.plugins.autopairs")
+        end,
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("sean.plugins.nvim-ts-autotag")
         end,
     },
     {
