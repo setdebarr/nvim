@@ -1,3 +1,5 @@
+local utils = require("sean.utils")
+
 ---@type NordicOptions
 ---@diagnostic disable-next-line: missing-fields
 local config = {
@@ -11,4 +13,6 @@ local config = {
     },
 }
 
-require("nordic").load(config)
+if utils.theme == "nordic" then
+    require("nordic").load(config)
+end

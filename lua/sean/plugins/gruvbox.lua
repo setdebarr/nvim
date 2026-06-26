@@ -1,3 +1,5 @@
+local utils = require("sean.utils")
+
 ---@type GruvboxConfig
 local config = {
     bold = false,
@@ -5,5 +7,7 @@ local config = {
     terminal_colors = false,
 }
 
-require("gruvbox").setup(config)
-require("gruvbox").load()
+if utils.theme == "gruvbox" then
+    require("gruvbox").setup(config)
+    require("gruvbox").load()
+end

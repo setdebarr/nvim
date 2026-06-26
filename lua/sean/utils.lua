@@ -23,4 +23,12 @@ function M.map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+---@alias MyTheme
+---| "caelus"
+---| "nordic"
+---| "gruvbox"
+
+---@type MyTheme
+M.theme = "caelus"
+
 return M

@@ -27,7 +27,6 @@ local spec = {
     -- Colorschemes
     {
         "AlexvZyl/nordic.nvim",
-        enabled = true,
         lazy = false,
         priority = 1000,
         config = function()
@@ -36,7 +35,6 @@ local spec = {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()
