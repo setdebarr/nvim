@@ -49,19 +49,19 @@ local spec = {
         dependencies = {},
     },
     {
+        "mason-org/mason.nvim",
+        config = function()
+            require("sean.plugins.mason")
+        end,
+    },
+    {
         "mason-org/mason-lspconfig.nvim",
         dependencies = {
-            {
-                "mason-org/mason.nvim",
-                ---@class MasonSettings
-                opts = {
-                    PATH = "append",
-                },
-            },
+            "mason-org/mason.nvim",
             "neovim/nvim-lspconfig",
         },
         config = function()
-            require("sean.plugins.mason")
+            require("sean.plugins.mason-lspconfig")
         end,
     },
     {
@@ -74,10 +74,17 @@ local spec = {
             require("sean.plugins.typescript-tools")
         end,
     },
+    {
+        "seblyng/roslyn.nvim",
+        config = function()
+            require("sean.plugins.roslyn")
+        end,
+    },
 
     -- Treesitter
     {
         "romus204/tree-sitter-manager.nvim",
+        branch = "develop",
         dependencies = {},
         config = function()
             require("sean.plugins.tree-sitter-manager")
@@ -164,6 +171,13 @@ local spec = {
     },
 
     -- Editing
+    {
+        "mfussenegger/nvim-lint",
+        lazy = false,
+        config = function()
+            require("sean.plugins.nvim-lint")
+        end,
+    },
     {
         "stevearc/conform.nvim",
         event = { "BufReadPre", "BufNewFile" },

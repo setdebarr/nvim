@@ -1,17 +1,19 @@
----@type tree-sitter-manager.Config
+---@type tree_sitter_manager.Config
 local config = {
     auto_install = true,
     ensure_installed = {
-        "rust",
+        "bash",
+        "c",
+        "cpp",
+        "jsdoc",
         "kotlin",
         "lua",
-        "bash",
-        "zsh",
         "python",
-        "cpp",
+        "rust",
         "toml",
         "xml",
         "yaml",
+        "zsh",
     },
 }
 
