@@ -66,6 +66,12 @@ local spec = {
     },
     {
         "pmizio/typescript-tools.nvim",
+        ft = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+        },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "neovim/nvim-lspconfig",
@@ -76,6 +82,7 @@ local spec = {
     },
     {
         "seblyng/roslyn.nvim",
+        ft = { "cs", "razor" },
         config = function()
             require("sean.plugins.roslyn")
         end,
@@ -134,6 +141,7 @@ local spec = {
     -- UI
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("sean.plugins.lualine")
@@ -147,12 +155,14 @@ local spec = {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("sean.plugins.indent-blankline")
         end,
     },
     {
         "sphamba/smear-cursor.nvim",
+        event = "VeryLazy",
         config = function()
             require("sean.plugins.smear-cursor")
         end,
@@ -169,13 +179,28 @@ local spec = {
     -- Git
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("sean.plugins.gitsigns")
         end,
     },
     {
         "tpope/vim-fugitive",
-        config = function() end,
+        cmd = {
+            "G",
+            "Git",
+            "Gdiffsplit",
+            "Gvdiffsplit",
+            "Gedit",
+            "Gread",
+            "Gwrite",
+            "Ggrep",
+            "Glgrep",
+            "GMove",
+            "GRename",
+            "GDelete",
+            "GBrowse",
+        },
     },
 
     -- Editing
@@ -196,12 +221,14 @@ local spec = {
     },
     {
         "windwp/nvim-ts-autotag",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("sean.plugins.nvim-ts-autotag")
         end,
     },
     {
         "fei6409/log-highlight.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("sean.plugins.log-highlight")
         end,
