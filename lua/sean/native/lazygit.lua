@@ -52,6 +52,11 @@ local function open()
 end
 
 function M.toggle()
+    if vim.fn.executable("lazygit") == 0 then
+        vim.notify("lazygit executable not found", vim.log.levels.WARN)
+        return
+    end
+
     if state.win and vim.api.nvim_win_is_valid(state.win) then
         vim.api.nvim_win_close(state.win, true)
         state.win = nil
