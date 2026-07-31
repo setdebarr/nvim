@@ -211,6 +211,16 @@ local spec = {
         end,
     },
     {
+        "jiaoshijie/undotree",
+        lazy = true,
+        init = function()
+            require("sean.keymap").undotree()
+        end,
+        config = function()
+            require("sean.plugins.undotree")
+        end,
+    },
+    {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()

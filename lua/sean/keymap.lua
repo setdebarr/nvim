@@ -313,6 +313,15 @@ function M.conform()
     end, { desc = "Format file or range (in visual mode)" })
 end
 
+function M.undotree()
+    map(
+        "n",
+        "<leader>ut",
+        "<cmd>lua require('undotree').toggle()<cr>",
+        { desc = "Toggle Undo Tree" }
+    )
+end
+
 function M.trouble()
     map("n", "<leader>q", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List" })
     map(

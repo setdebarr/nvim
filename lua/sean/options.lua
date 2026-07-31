@@ -32,6 +32,11 @@ vim.opt.winborder = "rounded"
 
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
 
+local undo_dir = vim.fn.stdpath("state") .. "/undo"
+vim.fn.mkdir(undo_dir, "p")
+vim.opt.undodir = undo_dir
+vim.opt.undofile = true
+
 vim.opt.exrc = true
 
 vim.diagnostic.config({
