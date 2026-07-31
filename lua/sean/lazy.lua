@@ -27,7 +27,7 @@ local spec = {
     -- Colorschemes
     {
         "AlexvZyl/nordic.nvim",
-        lazy = false,
+        lazy = require("sean.utils").theme ~= "nordic",
         priority = 1000,
         config = function()
             require("sean.plugins.nordic")
@@ -35,7 +35,7 @@ local spec = {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        lazy = false,
+        lazy = require("sean.utils").theme ~= "gruvbox",
         priority = 1000,
         config = function()
             require("sean.plugins.gruvbox")
