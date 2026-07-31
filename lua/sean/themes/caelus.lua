@@ -305,6 +305,11 @@ function M.colorscheme()
     hl("GitSignsChangeLn", { bg = colors.gray1 })
     hl("GitSignsDeleteLn", { bg = colors.gray1 })
 
+    -- NvimTree Git status
+    hl("NvimTreeGitStagedIcon", { fg = colors.green })
+    hl("NvimTreeGitDirtyIcon", { fg = colors.yellow })
+    hl("NvimTreeGitNewIcon", { fg = colors.yellow })
+
     -- Telescope
     hl("TelescopeNormal", { fg = colors.fg, bg = colors.gray1 })
     hl("TelescopeBorder", { fg = colors.gray6, bg = colors.gray1 })

@@ -30,6 +30,8 @@ vim.opt.termguicolors = true
 
 vim.opt.winborder = "rounded"
 
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
+
 vim.opt.exrc = true
 
 vim.diagnostic.config({

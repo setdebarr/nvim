@@ -13,7 +13,6 @@ function M.setup()
             require("sean.keymap").lsp(client, ev.buf)
 
             if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
-                vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
                 vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
             end
         end,

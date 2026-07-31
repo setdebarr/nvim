@@ -46,7 +46,6 @@ local spec = {
     {
         "neovim/nvim-lspconfig",
         lazy = false,
-        dependencies = {},
     },
     {
         "mason-org/mason.nvim",
@@ -92,7 +91,6 @@ local spec = {
     {
         "romus204/tree-sitter-manager.nvim",
         branch = "develop",
-        dependencies = {},
         config = function()
             require("sean.plugins.tree-sitter-manager")
         end,
