@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("sean.utils")
 
 local state = {
     buf = nil,
@@ -7,7 +8,8 @@ local state = {
 
 local border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 
-local function open()
+---@param cwd string
+local function open(cwd)
     local screen_w = vim.o.columns
     local screen_h = vim.o.lines - vim.o.cmdheight - 1
 
@@ -34,6 +36,7 @@ local function open()
 
     vim.fn.jobstart("lazygit", {
         term = true,
+        cwd = cwd,
         on_exit = function()
             if vim.api.nvim_win_is_valid(win) then
                 vim.api.nvim_win_close(win, true)
@@ -61,7 +64,7 @@ function M.toggle()
         vim.api.nvim_win_close(state.win, true)
         state.win = nil
     else
-        open()
+        open(utils.get_git_root())
     end
 end
 

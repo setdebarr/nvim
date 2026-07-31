@@ -33,7 +33,24 @@ function M.get_root()
         end
     end
 
-    return root or vim.fs.root(0, ".git") or vim.uv.cwd()
+    return root or M.get_git_root()
+end
+
+function M.get_git_root()
+    ---@type integer|string
+    local source = 0
+
+    if vim.bo.filetype == "NvimTree" then
+        local ok, api = pcall(require, "nvim-tree.api")
+        if ok then
+            local node = api.tree.get_node_under_cursor()
+            if node then
+                source = node.absolute_path
+            end
+        end
+    end
+
+    return vim.fs.root(source, ".git") or vim.fn.getcwd()
 end
 
 function M.get_visual_selection()
