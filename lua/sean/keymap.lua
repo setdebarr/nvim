@@ -18,8 +18,6 @@ function M.native()
     map("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
     map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page and center cursor" })
     map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page and center cursor" })
-    map("n", "n", "nzzzv", { desc = "Next search result and center cursor" })
-    map("n", "N", "Nzzzv", { desc = "Previous search result and center cursor" })
 
     -- better up/down
     map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true })
@@ -53,10 +51,10 @@ function M.native()
     )
 
     -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-    map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+    map("n", "n", "'Nn'[v:searchforward].'zzzv'", { expr = true, desc = "Next Search Result" })
     map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
     map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-    map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+    map("n", "N", "'nN'[v:searchforward].'zzzv'", { expr = true, desc = "Prev Search Result" })
     map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
     map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 end
