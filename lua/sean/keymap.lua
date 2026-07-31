@@ -1,4 +1,5 @@
-local map = require("sean.utils").map
+local utils = require("sean.utils")
+local map = utils.map
 local M = {}
 
 function M.lazygit()
@@ -215,12 +216,6 @@ end
 
 function M.telescope()
     local builtin = require("telescope.builtin")
-    local function get_root()
-        return vim.uv.cwd()
-    end
-    local function get_visual_selection()
-        return table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
-    end
 
     map("n", "<leader>sn", function()
         require("telescope").extensions.fidget.fidget()
@@ -231,7 +226,7 @@ function M.telescope()
         builtin.buffers({ sort_mru = true, sort_lastused = true })
     end, { desc = "Switch Buffer" })
     map("n", "<leader>sf", function()
-        builtin.find_files({ cwd = get_root() })
+        builtin.find_files({ cwd = utils.get_root() })
     end, { desc = "Search Files (Root Dir)" })
     map("n", "<leader>fr", builtin.oldfiles, { desc = "Recent" })
     map("n", '<leader>s"', builtin.registers, { desc = "Registers" })
@@ -245,7 +240,7 @@ function M.telescope()
         builtin.diagnostics({ bufnr = 0 })
     end, { desc = "Buffer Diagnostics" })
     map("n", "<leader>sg", function()
-        builtin.live_grep({ cwd = get_root() })
+        builtin.live_grep({ cwd = utils.get_root() })
     end, { desc = "Grep (Root Dir)" })
     map("n", "<leader>sh", builtin.help_tags, { desc = "Help Pages" })
     map("n", "<leader>sH", builtin.highlights, { desc = "Search Highlight Groups" })
@@ -258,10 +253,10 @@ function M.telescope()
     map("n", "<leader>sR", builtin.resume, { desc = "Resume" })
     map("n", "<leader>sq", builtin.quickfix, { desc = "Quickfix List" })
     map("n", "<leader>sw", function()
-        builtin.grep_string({ cwd = get_root(), word_match = "-w" })
+        builtin.grep_string({ cwd = utils.get_root(), word_match = "-w" })
     end, { desc = "Word (Root Dir)" })
     map("x", "<leader>sw", function()
-        builtin.grep_string({ cwd = get_root(), search = get_visual_selection() })
+        builtin.grep_string({ cwd = utils.get_root(), search = utils.get_visual_selection() })
     end, { desc = "Selection (Root Dir)" })
     map("n", "<leader>uC", function()
         builtin.colorscheme({ enable_preview = true })
