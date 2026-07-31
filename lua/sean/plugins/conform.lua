@@ -37,13 +37,4 @@ local config = {
 }
 
 require("conform").setup(config)
-
-local map = require("sean.utils").map
-
-map({ "n", "v" }, "<leader>ff", function()
-    require("conform").format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-    })
-end, { desc = "Format file or range (in visual mode)" })
+require("sean.keymap").conform()

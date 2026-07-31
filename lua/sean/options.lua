@@ -31,3 +31,7 @@ vim.opt.termguicolors = true
 vim.opt.winborder = "rounded"
 
 vim.opt.exrc = true
+
+vim.diagnostic.config({
+    virtual_text = true,
+})

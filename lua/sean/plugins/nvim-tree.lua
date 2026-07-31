@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>")
-
 ---@type nvim_tree.config
 local config = {
     hijack_cursor = true,
@@ -25,3 +23,4 @@ local config = {
 }
 
 require("nvim-tree").setup(config)
+require("sean.keymap").nvim_tree()

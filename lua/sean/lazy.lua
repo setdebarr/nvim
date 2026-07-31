@@ -157,6 +157,14 @@ local spec = {
             require("sean.plugins.smear-cursor")
         end,
     },
+    {
+        "folke/trouble.nvim",
+        event = "VeryLazy",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("sean.plugins.trouble")
+        end,
+    },
 
     -- Git
     {
