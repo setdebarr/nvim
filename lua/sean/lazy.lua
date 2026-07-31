@@ -180,13 +180,6 @@ local spec = {
 
     -- Editing
     {
-        "mfussenegger/nvim-lint",
-        lazy = false,
-        config = function()
-            require("sean.plugins.nvim-lint")
-        end,
-    },
-    {
         "stevearc/conform.nvim",
         event = { "BufReadPre", "BufNewFile" },
         cmd = { "ConformInfo" },
