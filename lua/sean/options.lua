@@ -17,7 +17,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
-
+vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
 
 vim.opt.isfname:append("@-@")
@@ -40,5 +40,5 @@ vim.opt.undofile = true
 vim.opt.exrc = true
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_lines = true,
 })
