@@ -20,6 +20,14 @@ local config = {
     filters = {
         git_ignored = false,
     },
+    on_attach = function(bufnr)
+        require("nvim-tree.keymap").on_attach_default(bufnr)
+        require("sean.utils").map("n", "<C-t>", "<Nop>", {
+            buffer = bufnr,
+            nowait = true,
+            desc = "nvim-tree: Disabled (New Tab)",
+        })
+    end,
 }
 
 require("nvim-tree").setup(config)

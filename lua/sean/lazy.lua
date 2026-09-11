@@ -90,7 +90,6 @@ local spec = {
     -- Treesitter
     {
         "romus204/tree-sitter-manager.nvim",
-        branch = "develop",
         config = function()
             require("sean.plugins.tree-sitter-manager")
         end,

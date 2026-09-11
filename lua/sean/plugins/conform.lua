@@ -28,6 +28,8 @@ local config = {
 
         sh = { "shfmt" },
         bash = { "shfmt" },
+
+        vhdl = { "vsg" },
     },
     formatters = {
         ["clang-format"] = {
