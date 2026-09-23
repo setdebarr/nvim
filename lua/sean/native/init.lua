@@ -5,3 +5,4 @@ if utils.theme == "caelus" then
 end
 
 require("sean.native.bitbake").setup()
+require("sean.native.lang")
