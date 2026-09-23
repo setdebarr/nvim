@@ -7,6 +7,10 @@ function M.lazygit()
 end
 
 function M.native()
+    map("n", "<leader>bb", require("sean.native.bitbake").rescan, {
+        desc = "Rescan [B]itbake project",
+    })
+
     map("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting default register" })
 
     map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
