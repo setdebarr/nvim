@@ -77,6 +77,13 @@ local spec = {
             require("sean.plugins.roslyn")
         end,
     },
+    {
+        url = "https://codeberg.org/mfussenegger/nvim-lint.git",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require("sean.plugins.nvim-lint")
+        end,
+    },
 
     -- Treesitter
     {
