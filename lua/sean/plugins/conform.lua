@@ -15,7 +15,7 @@ local config = {
         yaml = { "prettier" },
         markdown = { "prettier" },
 
-        python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
 
         rust = { "rustfmt" },
 
