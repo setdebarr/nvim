@@ -85,6 +85,9 @@ local spec = {
         end,
     },
 
+    -- Syntax
+    { "egberts/vim-syntax-nftables" },
+
     -- Treesitter
     {
         "romus204/tree-sitter-manager.nvim",
@@ -121,17 +124,6 @@ local spec = {
             require("sean.plugins.telescope")
         end,
     },
-    {
-        "dmtrKovalenko/fff",
-        build = function()
-            require("fff.download").download_or_build_binary()
-        end,
-        lazy = false,
-        config = function()
-            require("sean.plugins.fff")
-        end,
-    },
-
     -- File tree
     {
         "nvim-tree/nvim-tree.lua",
@@ -209,6 +201,13 @@ local spec = {
     },
 
     -- Editing
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("sean.plugins.flash")
+        end,
+    },
     {
         "stevearc/conform.nvim",
         event = { "BufReadPre", "BufNewFile" },

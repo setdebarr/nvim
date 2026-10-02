@@ -30,6 +30,8 @@ local config = {
         bash = { "shfmt" },
 
         vhdl = { "vsg" },
+
+        zig = { "zigfmt" },
     },
     formatters = {
         ["clang-format"] = {

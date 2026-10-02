@@ -320,6 +320,11 @@ function M.colorscheme()
     hl("TelescopeResultsTitle", { fg = colors.bg, bg = colors.blue, bold = true })
     hl("TelescopeSelection", { fg = colors.orange, bg = colors.gray2, bold = true })
     hl("TelescopeMatching", { fg = colors.orange, bold = true })
+
+    -- Flash
+    hl("FlashLabel", { fg = colors.bg, bg = colors.orange })
+    hl("FlashCurrent", { fg = colors.bg, bg = colors.yellow })
+    hl("FlashMatch", { fg = colors.bg, bg = colors.blue })
 end
 
 return M
