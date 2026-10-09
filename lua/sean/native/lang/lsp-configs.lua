@@ -13,6 +13,7 @@ vim.lsp.enable({
     "lua_ls",
     "marksman",
     "neocmake",
+    "perl-lsp",
     "pyright",
     "ruff",
     "rust_analyzer",

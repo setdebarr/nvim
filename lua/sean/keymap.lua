@@ -7,10 +7,6 @@ function M.lazygit()
 end
 
 function M.native()
-    map("n", "<leader>bb", require("sean.native.bitbake").rescan, {
-        desc = "Rescan [B]itbake project",
-    })
-
     map("n", "<leader>td", function()
         vim.diagnostic.enable(not vim.diagnostic.is_enabled())
     end, { desc = "Toggle diagnostics" })
@@ -219,6 +215,13 @@ function M.telescope_picker_mappings(actions)
             ["<c-d>"] = actions.delete_buffer,
             dd = actions.delete_buffer,
         },
+    }
+end
+
+function M.telescope_live_grep_mappings(toggle_mode)
+    return {
+        i = { ["<S-Tab>"] = toggle_mode },
+        n = { ["<S-Tab>"] = toggle_mode },
     }
 end
 

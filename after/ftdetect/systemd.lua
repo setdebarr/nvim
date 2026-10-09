@@ -13,7 +13,7 @@ local unit_directive = vim.regex(
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "filetypedetect",
-    pattern = { "*.service", "*.socket", "*.timer" },
+    pattern = { "*.service", "*.service.in", "*.socket", "*.timer" },
     callback = function()
         vim.cmd("setfiletype systemd")
     end,
