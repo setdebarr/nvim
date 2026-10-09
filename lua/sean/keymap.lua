@@ -11,6 +11,10 @@ function M.native()
         desc = "Rescan [B]itbake project",
     })
 
+    map("n", "<leader>td", function()
+        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    end, { desc = "Toggle diagnostics" })
+
     map("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting default register" })
 
     map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
