@@ -84,6 +84,13 @@ local spec = {
             require("sean.plugins.nvim-lint")
         end,
     },
+    {
+        "TheLeoP/powershell.nvim",
+        ft = { "ps1" },
+        config = function()
+            require("sean.plugins.powershell")
+        end,
+    },
 
     -- Syntax
     { "egberts/vim-syntax-nftables" },

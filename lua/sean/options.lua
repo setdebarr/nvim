@@ -28,7 +28,7 @@ vim.opt.list = true
 
 vim.opt.termguicolors = true
 
-vim.opt.winborder = "rounded"
+vim.opt.winborder = "bold"
 
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
 
