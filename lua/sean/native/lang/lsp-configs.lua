@@ -19,7 +19,7 @@ vim.lsp.enable({
     "stylua",
     "systemd_lsp",
     "tailwindcss",
-    "taplo",
+    "tombi",
     "vhdl_ls",
     "yamlls",
     "zls",
