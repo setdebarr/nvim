@@ -80,6 +80,7 @@ local spec = {
     {
         url = "https://codeberg.org/mfussenegger/nvim-lint.git",
         event = { "BufReadPost", "BufNewFile" },
+        cmd = { "LintInfo" },
         config = function()
             require("sean.plugins.nvim-lint")
         end,
@@ -97,9 +98,12 @@ local spec = {
 
     -- Treesitter
     {
-        "romus204/tree-sitter-manager.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
         config = function()
-            require("sean.plugins.tree-sitter-manager")
+            require("sean.plugins.nvim-treesitter")
         end,
     },
     {

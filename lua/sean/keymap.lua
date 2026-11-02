@@ -8,8 +8,12 @@ end
 
 function M.native()
     map("n", "<leader>td", function()
-        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-    end, { desc = "Toggle diagnostics" })
+        vim.diagnostic.config({
+            virtual_lines = not vim.diagnostic.config().virtual_lines,
+            virtual_text = false,
+            underline = true,
+        })
+    end, { desc = "Toggle diagnostic text" })
 
     map("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting default register" })
 
